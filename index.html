@@ -43,7 +43,7 @@ a.card:hover { border-color: var(--line-strong); background: var(--sunken) }
 
 <header class="top"><div class="wrap">
   <div class="brand">Model Card</div>
-  <nav class="tabs" aria-label="Sport"><a href="NFL/">NFL</a><a href="CBB/">College Basketball</a></nav>
+  <nav class="tabs" aria-label="Sport"><a href="NFL/">NFL</a><a href="CBB/">College Basketball</a><a href="NBA/">NBA</a></nav>
 </div></header>
 
 <main class="wrap">
@@ -54,13 +54,16 @@ a.card:hover { border-color: var(--line-strong); background: var(--sunken) }
       <p>Weekly bet card: projected scores, spread and total plays, teasers and lines at every book.</p><span class="go">Open NFL card →</span></a>
     <a class="card" href="CBB/"><h2>College Basketball <span class="tag" id="cbb-tag"></span></h2>
       <p>Daily card for every Division I game: projected scores, plays, odds board and record.</p><span class="go">Open college basketball card →</span></a>
+    <a class="card" href="NBA/"><h2>NBA <span class="tag" id="nba-tag"></span></h2>
+      <p>Daily card for every NBA game: projected scores, totals plays, spread leans, odds board and record.</p><span class="go">Open NBA card →</span></a>
   </div>
 </main>
 
 <script>
-  // In-season label: NFL September-February, college basketball November-April
+  // In-season label: NFL September-February, college basketball November-April, NBA October-June
   const m = new Date().getMonth() + 1;
   const set = (id, on) => { const t = document.getElementById(id); t.textContent = on ? "In season" : "Offseason"; if (on) t.classList.add("on"); };
   set("nfl-tag", m >= 9 || m <= 2);
   set("cbb-tag", m >= 11 || m <= 4);
+  set("nba-tag", m >= 10 || m <= 6);
 </script>
