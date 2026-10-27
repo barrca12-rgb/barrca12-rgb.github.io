@@ -2,68 +2,101 @@
 <html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Model Card</title>
+<title>Off The Glass</title>
+<meta property="og:title" content="Off The Glass">
+<meta name="description" content="Off The Glass: NFL, NBA and college basketball betting models. Every play logged at the posted number, graded in public.">
+<meta name="theme-color" content="#0A2C49">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:site_name" content="Off The Glass">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://barrca12-rgb.github.io/assets/otg-social.jpg">
+<meta property="og:description" content="NFL, NBA and college basketball models: every play logged at the posted number, graded in public.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@OffTheGlassHQ">
+<meta name="twitter:image" content="https://barrca12-rgb.github.io/assets/otg-social.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Graduate&family=Inter:wght@400;500;600;700;800&display=swap">
 <style>
+/* Same palette and header as the CBB and NBA cards (barrca12-rgb/CBB cbb/report_html.py) */
 :root {
-  --bg: #f6f7f9; --surface: #ffffff; --sunken: #f1f3f6; --line: #e3e6eb; --line-strong: #cfd4db;
-  --text: #101418; --muted: #5d6673; --accent: #1f5eff;
+  --bg: #fbf6ea; --surface: #ffffff; --sunken: #f7f0e1; --line: #ebe1cd; --line-strong: #d9cbb0;
+  --text: #0a2c49; --muted: #56627a; --faint: #8a93a3; --accent: #b84a08; --pos: #0f7b4b;
+  --brand: #fd6c0f; --bar: #0a2c49; --bar-text: #fbf6ea; --bar-muted: #b7c3d3;
   --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --display: "Graduate", "Rockwell", Georgia, serif;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0d0f12; --surface: #15181d; --sunken: #1b1f25; --line: #262b33; --line-strong: #353b45;
-    --text: #e8eaed; --muted: #9aa2ae; --accent: #6b9bff; color-scheme: dark;
+    --bg: #08090b; --surface: #12151a; --sunken: #181c22; --line: #242a33; --line-strong: #333b46;
+    --text: #f6eedd; --muted: #a8b0bc; --faint: #6f7886; --accent: #ff8a3d; --pos: #3ccf8e;
+    --bar: #000000; --bar-text: #f6eedd; --bar-muted: #9aa2ae; color-scheme: dark;
   }
 }
 * { box-sizing: border-box }
 body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.45 var(--font); -webkit-font-smoothing: antialiased }
-.wrap { max-width: 1200px; margin: 0 auto; padding: 0 16px }
-.top { background: var(--surface); border-bottom: 1px solid var(--line) }
-.top .wrap { display: flex; align-items: center; gap: 20px; height: 52px }
-.brand { font-weight: 700; font-size: 15px; letter-spacing: -.01em }
+a { color: var(--accent); text-decoration: none }
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 16px }
+.top { background: var(--bar); border-bottom: 3px solid var(--brand); position: sticky; top: 0; z-index: 5 }
+.top .wrap { display: flex; align-items: center; gap: 22px; height: 58px }
+.brand { display: flex; align-items: center; gap: 10px; white-space: nowrap; color: var(--bar-text) }
+.brand img { width: 34px; height: 34px; border-radius: 7px; display: block }
+.wordmark { font-family: var(--display); font-size: 19px; letter-spacing: .02em; text-transform: uppercase; line-height: 1 }
 .tabs { display: flex; gap: 2px; height: 100% }
-.tabs a { display: flex; align-items: center; padding: 0 12px; color: var(--muted); font-weight: 500; text-decoration: none; border-bottom: 2px solid transparent }
-.tabs a:hover { color: var(--text) }
-h1 { font-size: 22px; font-weight: 700; letter-spacing: -.02em; margin: 28px 0 4px }
+.tabs a { display: flex; align-items: center; padding: 0 12px; color: var(--bar-muted); font-weight: 600; font-size: 13px; letter-spacing: .04em;
+  text-transform: uppercase; border-bottom: 3px solid transparent; margin-bottom: -3px }
+.tabs a:hover { color: var(--bar-text) }
+.hero { display: block; height: 120px; width: auto; max-width: 100%; object-fit: contain; border-radius: 10px; margin-top: 24px; border: 1px solid var(--line) }
+h1 { font-family: var(--display); font-weight: 400; font-size: 26px; letter-spacing: .01em; margin: 24px 0 4px; line-height: 1.15 }
 .sub { color: var(--muted); margin: 0 0 20px }
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px }
-a.card { display: block; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 20px; color: var(--text); text-decoration: none }
-a.card:hover { border-color: var(--line-strong); background: var(--sunken) }
-.card h2 { font-size: 17px; font-weight: 600; margin: 0 0 4px; display: flex; justify-content: space-between; align-items: center }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px }
+a.card { display: block; background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--text); border-radius: 10px; padding: 20px;
+  color: var(--text); box-shadow: 0 1px 2px rgba(10,44,73,.06) }
+a.card:hover { border-color: var(--line-strong); border-top-color: var(--brand); background: var(--sunken) }
+.card h2 { font-size: 14px; font-weight: 800; margin: 0 0 6px; text-transform: uppercase; letter-spacing: .07em; display: flex; justify-content: space-between; align-items: center; gap: 8px }
 .card p { color: var(--muted); margin: 0 0 14px }
-.card .go { color: var(--accent); font-weight: 600; font-size: 13px }
-.tag { font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 4px; border: 1px solid var(--line-strong); color: var(--muted) }
-.tag.on { color: #0f7b4b; border-color: #0f7b4b }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tag.on { color: #3ccf8e; border-color: #3ccf8e } }
+.card .go { color: var(--accent); font-weight: 700; font-size: 13px }
+.tag { font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 4px; border: 1px solid var(--line-strong); color: var(--muted); letter-spacing: 0; text-transform: none }
+.tag.on { color: #fff; border-color: var(--brand); background: var(--brand) }
+footer { padding: 24px 0 40px }
+.follow { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text) }
+.follow img { width: 22px; height: 22px; border-radius: 5px }
+@media (max-width: 860px) {
+  .top .wrap { gap: 10px } .wordmark { display: none } .tabs a { padding: 0 8px; font-size: 12px }
+  .hide-sm { display: none } h1 { font-size: 21px }
+}
+@media (min-width: 861px) { .show-sm { display: none } }
+@media (max-width: 720px) { .hero { height: auto; width: 100% } }
 </style>
 
 <header class="top"><div class="wrap">
-  <div class="brand">Model Card</div>
-  <nav class="tabs" aria-label="Sport"><a href="NFL/">NFL</a><a href="CBB/">College Basketball</a><a href="NBA/">NBA</a></nav>
+  <a class="brand" href="./" aria-label="Off The Glass home"><img src="assets/otg-logo-512.png" alt="" width="34" height="34"><span class="wordmark">Off The Glass</span></a>
+  <nav class="tabs" aria-label="Sport"><a href="NFL/">NFL</a><a href="NBA/">NBA</a><a href="CBB/"><span class="hide-sm">College Basketball</span><span class="show-sm">CBB</span></a></nav>
 </div></header>
 
 <main class="wrap">
-  <h1>Model Card</h1>
-  <p class="sub">Daily projections and plays against live sportsbook lines.</p>
+  <img class="hero" src="assets/otg-banner.webp" alt="Off The Glass">
+  <h1>Today's cards</h1>
+  <p class="sub">Model projections and plays against live sportsbook lines. Every play logged at the posted number and graded in public.</p>
   <div class="cards">
     <a class="card" href="NFL/"><h2>NFL <span class="tag" id="nfl-tag"></span></h2>
-      <p>Weekly bet card: projected scores, spread and total plays, teasers and lines at every book.</p><span class="go">Open NFL card →</span></a>
+      <p>Weekly card: projected scores, spread and total plays, teasers and lines at every book.</p><span class="go">Open NFL card →</span></a>
+    <a class="card" href="NBA/"><h2>NBA <span class="tag" id="nba-tag"></span></h2>
+      <p>Daily card for every game: projected scores, totals plays, spread leans, odds board and record.</p><span class="go">Open NBA card →</span></a>
     <a class="card" href="CBB/"><h2>College Basketball <span class="tag" id="cbb-tag"></span></h2>
       <p>Daily card for every Division I game: projected scores, plays, odds board and record.</p><span class="go">Open college basketball card →</span></a>
-    <a class="card" href="NBA/"><h2>NBA <span class="tag" id="nba-tag"></span></h2>
-      <p>Daily card for every NBA game: projected scores, totals plays, spread leans, odds board and record.</p><span class="go">Open NBA card →</span></a>
   </div>
+  <footer><a class="follow" href="https://x.com/OffTheGlassHQ" target="_blank" rel="noopener"><img src="assets/otg-logo-512.png" alt="">Follow @OffTheGlassHQ on X for every play</a></footer>
 </main>
 
 <script>
-  // In-season label: NFL September-February, college basketball November-April, NBA October-June
+  // In-season label: NFL September-February, college basketball October-April, NBA October-June
   const m = new Date().getMonth() + 1;
   const set = (id, on) => { const t = document.getElementById(id); t.textContent = on ? "In season" : "Offseason"; if (on) t.classList.add("on"); };
   set("nfl-tag", m >= 9 || m <= 2);
-  set("cbb-tag", m >= 11 || m <= 4);
+  set("cbb-tag", m >= 10 || m <= 4);
   set("nba-tag", m >= 10 || m <= 6);
 </script>
